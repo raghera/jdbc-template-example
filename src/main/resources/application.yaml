@@ -1,0 +1,33 @@
+spring:
+  config:
+    import: "optional:configtree:/mnt/secrets/wa/"
+  application:
+    name: WA Task Management
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    hikari:
+      auto-commit: false
+
+
+logging:
+  level:
+    org:
+      springframework:
+        jdbc:
+          core:
+            JdbcTemplate: DEBUG
+#  datasource:
+#    driverClassName: org.postgresql.Driver
+#    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_NAME:cft_task_db}${POSTGRES_CONNECTION_OPTIONS:}
+#    username: ${POSTGRES_USERNAME:postgres}
+#    password: ${POSTGRES_PASSWORD:}
+#  jpa:
+#    database-platform: org.hibernate.dialect.PostgreSQLDialect
+#    hibernate:
+#      naming:
+#        physical-strategy: com.vladmihalcea.hibernate.type.util.CamelCaseToSnakeCaseNamingStrategy
+#    properties:
+#      hibernate:
+#        default_schema: ${POSTGRES_NAME:cft_task_db}
+#        dialect: "uk.gov.hmcts.reform.wataskmanagementapi.config.CustomPostgreSQL94Dialect"
